@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Assets/css/chargingMode.css">
+
+
+</head>
+<style>
+    #btnnext {
+
+appearance: none;
+background-color: #2ea44f;
+border: 1px solid rgba(27, 31, 35, .15);
+border-radius: 6px;
+box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+font-size: 14px;
+font-weight: 600;
+line-height: 20px;
+padding: 6px 16px;
+position: relative;
+text-align: center;
+text-decoration: none;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: middle;
+white-space: nowrap;
+}
+
+.btnnext:focus:not(:focus-visible):not(.focus-visible) {
+box-shadow: none;
+outline: none;
+}
+
+.btnnext:hover {
+background-color: #2c974b;
+}
+
+.btnnext:focus {
+box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+outline: none;
+}
+
+.btnnext:disabled {
+background-color: #94d3a2;
+border-color: rgba(27, 31, 35, .1);
+color: rgba(255, 255, 255, .8);
+cursor: default;
+}
+
+.btnnext:active {
+background-color: #298e46;
+box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+</style>
+<body>
+    <img class="background" src="Assets/img/Flex_LandingPage_Glow_1160x600-1b.jpg" alt="">
+    <div class="head" width="100%">
+        <h1>Welcome To Electric Charging Point</h1>
+      </div>
+      <br/>
+   <div class="container">
+   <h2>Your Vehicle is :- <span name="ev" type="text" id="result" style="color: cadetblue;"></span></h2>
+   <p>Please select your Charging Socket:</p>
+     <input type="radio" id="type1" name="type" value="Type1" onchange="price()">
+     <label for="type1">Type1</label><br>
+     <input type="radio" id="type2" name="type" value="Type2" onchange="price()">
+     <label for="type2">Type2</label><br>
+     <input type="radio" id="type3" name="type" value="Type3" onchange="price()">
+     <label for="type3">Type3</label>
+   <br><br>
+   <label for="ntAmt">Net Amount:- </label>
+   <input type="text" id="dis" name="netAmt" readonly/>
+   <br><br>
+   <label for="paymentmethod">Payment Method:- </label>
+        <select name="paymentmethod" class="payMethod">
+          <option value="cash">Cash</option>
+          <option value="credit_debit_card">Credit/Debit Card</option>
+          <option value="imps">IMPS(Online Pay)</option>
+          <option value="">(Ether) Coming Soon!!!</option>
+          <p id="result">Value of selected Radio Button</p>
+        </select>
+        <br><br><br>
+        <button class="submitBtn" onclick="calAmt();">Final Amt To Pay:- </button>
+         <input type="text" id="amt" name="amt" readonly>
+   
+  </div>
+</div>
+    
+    <script>
+        document.getElementById("result").innerHTML=localStorage.getItem("textvalues");
+     
+        var type= document.getElementsByName("type");
+
+       function price(){
+         if(type[0].checked){
+             var pr=11;
+         }
+         else if(type[1].checked==true){
+             var pr=14;
+         }
+         else if(type[2].checked==true){
+             var pr=18;
+         }
+
+        document.getElementById('dis').value = pr;
+       } 
+
+       function calAmt() {
+          const amt = document.getElementById("dis").value;
+          document.getElementById("amt").value = amt;
+          alert("Confirm Payment");
+
+}
+    </script>
+</body>
+</html>

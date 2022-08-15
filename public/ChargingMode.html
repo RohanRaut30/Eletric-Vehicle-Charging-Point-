@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>EV Charging Mode</title>
+    <link rel="stylesheet" href="./Assets/css/chargingMode.css" />
+  </head>
+  <script src="./Assets/javaScripts/chargingMode.js"></script>
+
+  <body>
+    <img class="background" src="Assets/img/Flex_LandingPage_Glow_1160x600-1b.jpg" alt="">
+    <div class="head" width="100%">
+      <h1>Welcome To Electric Charging Point</h1>
+    </div>
+    <br/>
+    <span id="result"></span>
+    <form action="PaymentMode.html">
+    <div class="container">
+      <div class="f-group">
+        <label for="">Select Vehicle Category:- </label>
+        <select name="slct1" id="slct1" onchange="populate(this.id,'slct2')">
+          <option selected disabled value=""> --Select Category-- </option>
+          <option value="scooty">EV Scooty </option>
+          <option value="bike">EV Bike </option>
+          <option value="car">EV Car </option>
+          <option value="truckBus">EV Truck/Buses </option>
+        </select>
+      </div>
+      <br> <br>
+      <div class="f-group">
+        <label for="">Select Vehicle Company/Brand:- </label>
+        <select name='slct2' id='slct2'onchange="populate1(this.id,'slct3')">
+          <option selected disabled value=""> --Select Brand-- </option>
+        </select>
+
+      <br> <br>
+        <div class="f-group">
+          <label for=""> --Select Model-- </label>
+          <select name="slct3" id="slct3" onchange="info(this.id,'txt')">
+            <option selected disabled value=""> --Select Models-- </option>
+          </select>
+
+        </div>
+        <br><br>
+        <button type="button" value="next" id="btnnext">Show Details</button>
+        <br> <br>
+        <textarea name="textarea" id="textarea" cols="30" rows="10"> Vehicle Info</textarea>
+        <br><br>
+        <input type="submit" value="Next" id="btnnext" onclick="passvalue()"/>
+      </div>
+    </div>
+  </form>
+    <script>
+      const gettxt = document.getElementById('slct3');
+      const btnnext = document.getElementById('btnnext');
+      const textarea = document.getElementById('textarea');
+
+function fun1(){
+
+     textarea.innerHTML = gettxt.value;
+   if(gettxt == "ola s1" || "Ola S1" || "ola s1 pro" || "Ola S1 Pro"){
+        var info=gettxt.value 
+        textarea.innerHTML = info + ", Charging Time:- 6.30hr "+", Range:- 181 km/charge "+", Price :- Rs. 11/per charge";
+   } 
+   else if(gettxt == "ather 1|Ather 1", "ather 2|Ather 2"){
+        var info=gettxt.value 
+        textarea.innerHTML = info + ", Charging Time:- 7.00r "+", Range:- 152 km/charge "+", Price :- Rs. 9/per charge";
+   } 
+   else if(gettxt == "chetak 1|Chetak 1", "chetak pro|Chetak Pro"){
+        var info=gettxt.value
+        textarea.innerHTML = info + ", Charging Time:- 7.30r "+", Range:- 120 km/charge "+", Price :- Rs. 12/per charge";
+   } 
+   else if(gettxt == "tvs m|TVS M", "tvs 1|TVS 1"){
+        var info=gettxt.value 
+        textarea.innerHTML = info + ", Charging Time:- 6.00r "+", Range:- 112 km/charge "+", Price :- Rs. 8/per charge";
+   }  
+
+}
+btnnext.addEventListener('click',fun1);  
+
+  function passvalue(){
+        
+       var txtv = gettxt.value;
+       localStorage.setItem("textvalues",txtv);
+       return false;
+  }
+   </script>
+  </body>
+</html>

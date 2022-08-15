@@ -6,6 +6,8 @@ ul {
 
  body{
     background-repeat: no-repeat;
+    background:#e6e6ff;
+    font-family: 'Encode Sans', sans-serif;
  }
  html {
     position: relative;
@@ -38,8 +40,3 @@ ul {
       overflow: auto;
     }
     
-    body
-{
-  background:#e6e6ff;
-  font-family: 'Encode Sans', sans-serif;
-}

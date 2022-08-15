@@ -5,9 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="Assets/css/AdminCSS.css"/>
 </head>
 <body>
     <h2>Admin Mangement System</h2>
-    
+        
+    <br>    
+        <div class="login">    
+        <form  action="/adminLogin" method="POST">    
+            <label><b>Admin Name</b></label>    
+            <input type="text" required name="Uname" id="Uname" placeholder="Username">    
+            <br><br>    
+            <label><b>Admin Password</b></label>    
+            <input type="password" required name="Pass" id="Pass" placeholder="Password">    
+            <br><br>    
+            <button type="submit" name="log" id="log" value="Log In ">Log In</button>                
+        </form>     
+    </div>    
+        
 </body>
 </html>

@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
    },
    email: {  
        type:String,
-       require:true,
+       required:true,
        unique:true
    },
    password: {
@@ -24,10 +24,8 @@ const userSchema = new mongoose.Schema({
 userSchema.pre("save",async function(next) {
 
     if(this.isModified("password")){
-    console.log(`the current password is ${this.password}`);
-    this.password = await bcrypt.hash(this.password, 10);
-    console.log(`the current password after Hashing is ${this.password}`);
-    
+   
+    this.password = await bcrypt.hash(this.password, 10);    
     this.ConfirmPassword = undefined;
 }
     next();
